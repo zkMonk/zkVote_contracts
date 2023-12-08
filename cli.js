@@ -40,7 +40,7 @@ const getVotingId = (votingId) =>
   snarkjs.bigInt.leBuff2int(toBN(votingId).toBuffer());
 
 /** Compute pedersen hash */
-const pedersenHash = (data) =>
+const e = (data) =>
   circomlib.babyJub.unpackPoint(circomlib.pedersenHash.hash(data))[0];
 
 /** BigNumber to hex string of specified length */
@@ -692,6 +692,7 @@ async function init({ rpc, noteNetId }) {
     );
   }
   isLocalRPC = netId > 42;
+  console.log(netId, "netId");
 
   if (isLocalRPC) {
     tornadoAddress = contractJson.networks[netId].address;
@@ -756,7 +757,7 @@ async function main() {
     .option(
       "-r, --rpc <URL>",
       "The RPC, CLI should interact with",
-      "http://localhost:8545"
+      "http://127.0.0.1:8545/"
     )
     .option("-R, --relayer <URL>", "Withdraw via relayer")
     .option("-A, --address <address>", "Address in form of # or 0x");
@@ -821,7 +822,7 @@ async function main() {
     .command("setTornado")
     .description("Sets tornado address")
     .action(async () => {
-      // await init({ rpc: program.rpc });
+      await init({ rpc: program.rpc });
       await setTornado();
     });
 
