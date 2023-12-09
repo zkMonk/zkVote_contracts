@@ -13,7 +13,7 @@
 
 // // const { takeSnapshot, revertSnapshot } = require("../lib/ganacheHelper");
 
-// const MerkleTreeWithHistory = require("../contracts/Mocks/MerkleTreeWithHistoryMock.sol");
+// const MerkleTreeWithHistory = require("../contracts/MerkleTreeWithHistoryMock.sol");
 // const hasherContract = require("./Hasher.sol");
 
 // const MerkleTree = require("../lib/MerkleTree");

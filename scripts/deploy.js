@@ -44,14 +44,20 @@ async function main() {
   //   abi: contractAbi,
   //   bytecode: contractbytecode,
   // });
-  const lock = await ethers.getContractFactory("Voting");
+  const lock = await ethers.getContractFactory("Hasher");
   const hasher = await lock.deploy();
+  const voting = await ethers.getContractFactory("Voting");
+  const VotingContract = await voting.deploy();
 
   // const yourContract =
   //   await YourContractFactory.deploy(/* constructor arguments if any */);
   // const yourContract = await ethers.deployContract("YourContractFactory");
 
-  console.log("YourContract deployed to:", hasher.address);
+  console.log(
+    "YourContract deployed to:",
+    hasher.target,
+    VotingContract.target
+  );
 }
 
 // We recommend this pattern to be able to use async/await everywhere

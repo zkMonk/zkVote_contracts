@@ -650,6 +650,7 @@ async function loadVoteData({ deposit }) {
  * Init web3, contracts, and snark
  */
 async function init({ rpc, noteNetId }) {
+  console.log(rpc, noteNetId);
   let contractJson, votingContractJson, tornadoAddress, votingAddress;
   // Initialize from local node
   web3 = new Web3(rpc, null, { transactionConfirmationBlocks: 1 });
@@ -695,7 +696,9 @@ async function init({ rpc, noteNetId }) {
   console.log(netId, "netId");
 
   if (isLocalRPC) {
+    // voting tornado
     tornadoAddress = contractJson.networks[netId].address;
+    // voting contract address
     votingAddress = votingContractJson.networks[netId].address;
     senderAccount = (await web3.eth.getAccounts())[0];
   } else {
@@ -765,6 +768,7 @@ async function main() {
     .command("accounts")
     .description("Display accounts information")
     .action(async () => {
+      // console.log("program.rpc", program.rpc);
       await init({ rpc: program.rpc });
       await getAccounts();
       console.log(
