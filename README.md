@@ -216,14 +216,14 @@ node ./cli.js compliance tornado-4-1592692982076-0x6b3afc57725b0729801669e8fb609
 
 =============Ballot==================
 Deposit     : undefined undefined
-Date        : 6/22/2020 7:14:44 PM
+Date        : 12/09/2023 7:14:44 PM
 From        : 0x9db0a13addab1a7492ac9fb458ee61e9c50c95c6
 Transaction : 0x635993c940f986497bc44e5e2a1a92fccd44f3a2ce1fc9bc4dd9c3561034b30b
 Commitment  : 0x20f863c511daa535f605e62200ed24d36e81141d613e30dba440156c57e26201
 
 =============Vote====================
 VotingId    : 4
-Date        : 6/22/2020 7:18:48 PM
+Date        : 12/09/2023 7:18:48 PM
 From        : 0x06c03cf282b0cb9f223222bf92dee95ea8ce3a0d
 Transaction : 0xca8644097f065e42d0a1f9505dc1041a331c48e9eeaa2384efa7052a8d172aeb
 Nullifier   : 0x002a01d05f87ffd7f42f7a462ff77a3089e764441934e525ccd22afd84003d1b
