@@ -697,9 +697,11 @@ async function init({ rpc, noteNetId }) {
 
   if (isLocalRPC) {
     // voting tornado
-    tornadoAddress = contractJson.networks[netId].address;
+    //tornadoAddress = contractJson.networks[netId].address;
+    tornadoAddress = "0xDc64a140Aa3E981100a9becA4E685f962f0cF6C9";
     // voting contract address
-    votingAddress = votingContractJson.networks[netId].address;
+    //votingAddress = votingContractJson.networks[netId].address;
+    votingAddress = "0xCf7Ed3AccA5a467e9e704C703E8D87F634fB0Fc9";
     senderAccount = (await web3.eth.getAccounts())[0];
   } else {
     try {
@@ -782,6 +784,7 @@ async function main() {
     .description("Creates voting")
     .action(async (optionsNumber, nominationValue) => {
       await init({ rpc: program.rpc });
+      console.log("Calling create vote");
       const votingId = await createVoting(optionsNumber, nominationValue);
       console.log("Voting created. ID : ", votingId);
     });
