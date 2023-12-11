@@ -4,10 +4,9 @@ require("@nomicfoundation/hardhat-toolbox");
 module.exports = {
   solidity: "0.5.17",
   networks: {
-    polygon_zkevm: {
-      url: "https://rpc.public.zkevm-test.net" || "",
-      accounts:
-        process.env.PRIVATE_KEY !== undefined ? [process.env.PRIVATE_KEY] : [],
+    polygon: {
+      url: "https://rpc-mumbai.maticvigil.com" || "",
+      accounts: ["Process.env.PRIVATE_KEY"],
     },
   },
 };

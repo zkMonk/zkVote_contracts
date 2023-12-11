@@ -3,20 +3,21 @@ const { expect } = require("chai");
 
 // Import other necessary dependencies and contracts...
 
-describe("VotingTornado", async function () {
+describe.only("VotingTornado", async function () {
   let tornado;
   let voting;
   const [deployer, user1, user2, relayer] = await ethers.getSigners();
   const MERKLE_TREE_HEIGHT = 20;
+  const ETH_AMOUNT = 1;
   const levels = MERKLE_TREE_HEIGHT || 16;
   const value = ETH_AMOUNT || ethers.utils.parseEther("1");
   let snapshotId;
   let prefix = "test";
   let tree;
-  const fee = ethers.BigNumber.from(0);
-  const refund = ethers.BigNumber.from(0);
-  const recipient = getVotingId(1);
-  const badRecipient = getVotingId(2);
+  // const fee = ethers.BigNumber.from(0);
+  // const refund = ethers.BigNumber.from(0);
+  //const recipient = getVotingId(1);
+  //const badRecipient = getVotingId(2);
   let groth16;
   let circuit;
   let proving_key;
@@ -25,7 +26,7 @@ describe("VotingTornado", async function () {
     tree = new MerkleTree(levels, null, prefix);
     const Tornado = await ethers.getContractFactory("VotingTornado");
     tornado = await Tornado.deploy();
-    const Voting = await ethers.getContractFactory("VotingTornado");
+    const Voting = await ethers.getContractFactory("Voting");
     voting = await Voting.deploy();
 
     await voting.setTornado(tornado.address);

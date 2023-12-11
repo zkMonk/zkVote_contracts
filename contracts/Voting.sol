@@ -3,6 +3,7 @@ pragma solidity 0.5.17;
 import "./Tornado.sol";
 import "./IVoting.sol";
 import "@openzeppelin/contracts/math/SafeMath.sol";
+import "hardhat/console.sol";
 
 
 contract Voting is IVoting {
@@ -33,6 +34,7 @@ contract Voting is IVoting {
 
     function setTornado(address addr) public returns (bool) {
         _tornado = addr;
+        console.log("_tornado", _tornado);
         return true;
     }
 

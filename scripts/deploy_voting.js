@@ -12,7 +12,7 @@ async function main() {
   const hasherContract = await hre.ethers.getContractFactory("Hasher");
   const hasherInstance = await hasherContract.deploy();
   //await hasherInstance.deployed();
-  console.log(hasherInstance.address);
+  //console.log(hasherInstance);
 
   const Voting = await ethers.getContractFactory("Voting");
   const MerkleTree = await ethers.getContractFactory("MerkleTreeWithHistory", {
@@ -33,7 +33,8 @@ async function main() {
   const TOKEN_AMOUNT = 10;
 
   const votingInstance = await Voting.deploy();
-  console.log("votingInstance", votingInstance.target);
+  console.log("votingInstance", votingInstance);
+  console.log("voting contract address", votingInstance.target);
 
   const tornado = await VotingTornado.deploy(
     verifierContract.target,
@@ -41,6 +42,7 @@ async function main() {
     deployer.address,
     votingInstance.target
   );
+  console.log("Voting Tornado Instance", tornado);
   console.log("VotingTornado's address ", tornado.target);
 }
 

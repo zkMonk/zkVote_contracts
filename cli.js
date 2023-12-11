@@ -40,7 +40,7 @@ const getVotingId = (votingId) =>
   snarkjs.bigInt.leBuff2int(toBN(votingId).toBuffer());
 
 /** Compute pedersen hash */
-const e = (data) =>
+const pedersenHash = (data) =>
   circomlib.babyJub.unpackPoint(circomlib.pedersenHash.hash(data))[0];
 
 /** BigNumber to hex string of specified length */
